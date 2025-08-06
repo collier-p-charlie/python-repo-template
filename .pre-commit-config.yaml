@@ -1,0 +1,43 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: pretty-format-json
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit  # Ruff linter an formatter.
+    rev: v0.12.7
+    hooks:
+      - id: ruff-check  # Run the linter and fix issues.
+        args: [ --fix ]
+      - id: ruff-format  # Run the formatter.
+      - id: ruff-check  # Run the linter after formatting.
+
+  - repo: https://github.com/pre-commit/mirrors-mypy  # MyPy type checker.
+    rev: v1.17.1
+    hooks:
+      - id: mypy
+
+  - repo: https://github.com/hadolint/hadolint  # Dockerfile linter.
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform  # Terraform hooks.
+    rev: v1.99.5
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+      - id: terraform_validate
+      - id: terraform_providers_lock
+      - id: terraform_tflint
+      - id: terrascan
