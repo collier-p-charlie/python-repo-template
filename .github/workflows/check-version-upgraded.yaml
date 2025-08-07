@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip install packaging
+          uv pip install packaging --system
 
       - name: Check version bump
         run: |
