@@ -34,7 +34,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync --extra test
+          uv sync --extra test --system
 
       - name: Run PyTest
         run: |
@@ -78,7 +78,7 @@ jobs:
         run: |
           VERSION=${{ steps.get-version.outputs.version }}
           uv pip install --index-url https://test.pypi.org/simple/ package-name==$VERSION --system
-          uv sync --extra test
+          uv sync --extra test --system
 
       - name: Run PyTest
         run: |
