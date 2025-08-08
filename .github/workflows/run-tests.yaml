@@ -38,14 +38,17 @@ jobs:
 
       - name: Run PyTest
         run: |
+          source .venv/bin/activate
           pytest
 
       - name: Run MyPy  # Typing Checking
         run: |
+          source .venv/bin/activate
           mypy
 
       - name: Run Ruff  # Linting
         run: |
+          source .venv/bin/activate
           ruff check src/
 
   run-python-tests-from-test-pypi:
@@ -83,4 +86,5 @@ jobs:
 
       - name: Run PyTest
         run: |
+          source .venv/bin/activate
           pytest --no-cov  # override
