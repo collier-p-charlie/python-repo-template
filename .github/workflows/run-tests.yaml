@@ -80,9 +80,8 @@ jobs:
       - name: Install dependencies
         run: |
           VERSION=${{ steps.get-version.outputs.version }}
-          uv sync --extra test
-          uv pip uninstall package-name -y
-          uv pip install --index-url https://test.pypi.org/simple/ package-name==$VERSION --system
+          uv sync --extra test --no-install-project
+          uv pip install --index-url https://test.pypi.org/simple/ package-name==$VERSION
 
       - name: Run PyTest
         run: |
